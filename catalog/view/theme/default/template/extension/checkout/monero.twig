@@ -1,0 +1,49 @@
+{{ header }}
+<div id="common-success" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div style="width: 100%; text-align: justify">
+        <p>
+          {{ text_description }}
+        </p>
+      </div>
+      <div style="width: 100%">
+        <img src="{{ monero_qr_link }}">
+        
+          <span>
+            {{ text_address }}: <a href="{{ monero_link }}">{{ monero_address }}</a>
+          </span>
+          <span>
+            {{ text_payment_id }}: <span id="monero_payment_id">{{ monero_payment_id }}</span>
+          </span>
+          <span>
+            {{ text_amount }}: {{ text_total_ext }}
+          </span>
+        </div>
+      </div>
+      <div class="clear_both">&nbsp;</div>
+      <div>
+        <p>
+          {{ text_payment_info }}
+        </p>
+      </div>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}
