@@ -4,8 +4,8 @@ class ControllerExtensionPaymentMonero extends Controller {
     private $payment_module_name  = 'monero';
 	public function index() {
         	
-    		$this->load->model('payment/monero');
-		//$this->load->model('checkout/order');
+    		//$this->load->model('payment/monero');
+		$this->load->model('checkout/order');
 		$order_id = $this->session->data['order_id'];
 		$order = $this->model_checkout_order->getOrder($order_id);
 		$current_default_currency = $this->config->get('config_currency');
@@ -63,13 +63,12 @@ class ControllerExtensionPaymentMonero extends Controller {
 	}
 	
 	public function make_integrated_address(){
-		   /*
+		   
 		    $host = $this->config->get('monero_wallet_rpc_host');
 		    $port = $this->config->get("monero_wallet_rpc_port");
 		$monero = new monero($host, $port);
 		$payment_id = "";
-		$integrated_address = $monero->make_integrated_address($payment_id);*/
-		$integrated_address = "";
+		$integrated_address = $monero->make_integrated_address($payment_id);
 		return $integrated_address; 
 	}
 	
