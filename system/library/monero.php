@@ -30,11 +30,11 @@
         502 => '502 Bad Gateway',
         503 => '503 Service Unavailable'
     );
-    public function __construct($pUrl, $pUser = null, $pPass = null)
+    public function __construct($host, $port, $pUser = null, $pPass = null)
     {
         $this->validate(false === extension_loaded('curl'), 'The curl extension must be loaded to use this class!');
         $this->validate(false === extension_loaded('json'), 'The json extension must be loaded to use this class!');
-        $this->url = $pUrl;
+        $this->url = "http://" . $host . ":" . $port . "/json_rpc";
         $this->username = $pUser;
         $this->password = $pPass;
     }
@@ -280,4 +280,4 @@
 
   
  }  
- 
+  
