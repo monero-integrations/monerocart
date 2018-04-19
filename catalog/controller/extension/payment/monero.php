@@ -69,7 +69,7 @@ class ControllerExtensionPaymentMonero extends Controller {
 		$monero = new monero($host, $port);
 		$payment_id = "";
 		$integrated_address = $monero->make_integrated_address($payment_id);
-		return $integrated_address; 
+		return $integrated_address["integrated_address"]; 
 	}
 	
 	/*
