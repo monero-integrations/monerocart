@@ -40,3 +40,4 @@
             <!-- end monero container payment box -->
       
 	</div>
+<input type="button" value="Verify Payment" onClick="window.location.reload()" style="float: right;">
