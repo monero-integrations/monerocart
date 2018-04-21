@@ -62,18 +62,25 @@ class ControllerExtensionPaymentMonero extends Controller {
         }
 	}
 	
+	private function set_paymentid_cookie()
+        {
+            if (!isset($_COOKIE['payment_id'])) {
+                $payment_id = bin2hex(openssl_random_pseudo_bytes(8));
+                setcookie('payment_id', $payment_id, time() + 2700);
+            }
+            else{
+                $payment_id = $_COOKIE['payment_id'];
+            }
+            return $payment_id;
+        }
+	
 	public function make_integrated_address(){
 		   
-		    $host = $this->config->get('monero_wallet_rpc_host');
-		    $port = $this->config->get("monero_wallet_rpc_port");
+		$host = $this->config->get('monero_wallet_rpc_host');
+		$port = $this->config->get("monero_wallet_rpc_port");
 		$monero = new monero($host, $port);
-		$payment_id = "";
+		$payment_id = $this->set_paymentid_cookie();
 		$integrated_address = $monero->make_integrated_address($payment_id);
 		return $integrated_address["integrated_address"]; 
-	}
-	
-	/*
-		Here function for prices, integrated address, connection between opencart and wallet rpc
-	*/
-	
+	}	
 }
