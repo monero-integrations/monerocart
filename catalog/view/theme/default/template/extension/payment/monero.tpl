@@ -1,3 +1,8 @@
+<div id="textbox">
+  <h2 class="alignleft"> <?php echo $message; ?>  </h2>
+  <input type="button" value="Verify Payment" onClick="window.location.reload()">
+</div>
+
 <div class="buttons">
 		<link href="http://cdn.monerointegrations.com/style.css" rel="stylesheet">
 	
@@ -40,4 +45,3 @@
             <!-- end monero container payment box -->
       
 	</div>
-<input type="button" value="Verify Payment" onClick="window.location.reload()" style="float: right;">
