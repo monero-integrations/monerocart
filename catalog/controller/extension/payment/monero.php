@@ -18,7 +18,7 @@
             
             $data['integrated_address'] = $this->make_integrated_address($payment_id);
             $address = $this->config->get("monero_address");
-            $data['url'] = "monero:".$address."";
+            $data['url'] = "monero:" . $data['integrated_address'] . "?tx_amount=" . $amount_xmr;
             if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/monero.tpl')) {
                 $this->template = $this->config->get('config_template') . '/template/payment/monero.tpl';
             } else {
