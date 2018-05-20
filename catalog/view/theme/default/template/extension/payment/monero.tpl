@@ -11,7 +11,7 @@
         <link href='http://cdn.monerointegrations.com/style.css' rel='stylesheet'>
         
             
-            <!-- monero container payment box -->
+            <!-- Monero container payment box -->
             <div class='container-xmr-payment'>
             <!-- header -->
             <div class='header-xmr-payment'>
@@ -42,6 +42,6 @@
             </div>
             <!-- end footer xmr payment -->
             </div>
-            <!-- end monero container payment box -->
+            <!-- end Monero container payment box -->
       
 	</div>
